@@ -11,6 +11,8 @@ public class MainMenu2 : MonoBehaviour
     private Slider SFX, MUSIC;
     [SerializeField]
     private Dropdown dropdown;
+    [SerializeField]
+    private Dropdown mapDropdown;
 
     private void Start()
     {
@@ -20,11 +22,17 @@ public class MainMenu2 : MonoBehaviour
         dropdown.options = Enumerable.Range(0, LevelsManager.Instance.UnlockedLevel + 1)
             .Select(level => new Dropdown.OptionData(level == 0 ? "Tutorial" : "Level " + level))
             .ToList();
+        mapDropdown.options = Enum.GetValues(typeof(LevelsManager.Map)).Cast<LevelsManager.Map>()
+            .Select(map => new Dropdown.OptionData(map.ToString()))
+            .ToList();
+        mapDropdown.value = (int) LevelsManager.Instance.CurrentMap;
     }
 
     private void Update()
     {
         LevelsManager.Instance.Level = dropdown.value;
+        LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
+        
         PlayerPrefs.SetFloat("sfx", SFX.value);
         PlayerPrefs.SetFloat("music", MUSIC.value);
         var quitKey = KeyCode.Escape;
