@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(BabyState))]
@@ -27,6 +28,8 @@ public class BabyController : MonoBehaviour
     public Animator anim;
     // colliders that needs to be enabled when not using ragdoll
     public Rigidbody rb;
+    // Object to spawn when leaking oil
+    public GameObject oilPuddle;
     // every one 1 second decrement by 2 units
     [SerializeField] private float decrementAmountEnergy = 2f;
     private float decreaseHealthPerKick = 10f;
@@ -51,6 +54,8 @@ public class BabyController : MonoBehaviour
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int InStation = Animator.StringToHash("InStation");
     private static readonly int BabyShaking = Animator.StringToHash("BabyShake");
+
+    private bool oilLeaked = false;
     
     public delegate void BodyPartDetachedHandler();
 
@@ -174,6 +179,16 @@ public class BabyController : MonoBehaviour
         {
             isLocked = true;
             interactable.LockBaby();
+        }
+        // Consequence for diaper (leak oil)
+        if (!oilLeaked && Mathf.Approximately(state.currentDiaper, 0.0f))
+        {
+            oilLeaked = true;
+            Instantiate(oilPuddle, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+        }
+        else if (state.currentDiaper > 0.9f)
+        {
+            oilLeaked = false;
         }
     }
 

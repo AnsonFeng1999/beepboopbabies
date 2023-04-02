@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 inputDirection;
     private Vector3 playerVelocity;
     private AgentState state;
+    public float moveSpeedMultiplier = 1;
 
     private bool isAimingWithMouse;
     private Vector3 mouseAimingPosition = Vector2.zero;
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        controller.Move(playerVelocity * Time.deltaTime);
+        controller.Move(playerVelocity * (moveSpeedMultiplier * Time.deltaTime));
     }
     
     

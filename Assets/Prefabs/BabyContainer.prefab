@@ -1132,6 +1132,8 @@ MonoBehaviour:
   ragdollRigidBodies: []
   anim: {fileID: 4649954827600401395}
   rb: {fileID: 0}
+  oilPuddle: {fileID: 9020241751442139257, guid: 066f0b3193273bd43b652abbdc4b5b91,
+    type: 3}
   decrementAmountEnergy: 1
   decrementAmountDiaper: 1.5
   oilDrinkAmountOil: 25
