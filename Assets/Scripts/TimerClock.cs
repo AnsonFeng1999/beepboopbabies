@@ -42,13 +42,13 @@ public class TimerClock : MonoBehaviour
         float min = Mathf.FloorToInt(CurrentTime / 60);
         float sec = Mathf.FloorToInt(CurrentTime % 60);
 
-        if (min + 6 <= 12)
+        if (min + 6 < 12)
         {
-            TimerTxt.text = string.Format("{0:00} : {1:00}", min + 6, sec);
+            TimerTxt.text = string.Format("{0:00} : {1:00}", min + 6, sec) + " AM";
         }
         else
         {
-            TimerTxt.text = string.Format("{0:00} : {1:00}", min + 6 - 12, sec);
+            TimerTxt.text = string.Format("{0:00} : {1:00}", min + 6, sec) + " PM";
             //Play Camera Shake
             if (min + 6 - 12 >= 4 && isPlay == false)
             {
