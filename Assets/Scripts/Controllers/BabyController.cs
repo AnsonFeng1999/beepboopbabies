@@ -57,7 +57,6 @@ public class BabyController : MonoBehaviour
     private static readonly int BabyShaking = Animator.StringToHash("BabyShake");
 
     private bool oilLeaked = false;
-    private bool overCharged = false;   // A flag indicated that if a baby in charge station is overcharged
     
     public delegate void BodyPartDetachedHandler();
 
@@ -264,6 +263,10 @@ public class BabyController : MonoBehaviour
         state.currentEnergy += incrementAmount;
         state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
         uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
+        if (state.currentEnergy >= state.energy) 
+        {
+            DecreaseHealth(decreaseHealthPerSec * Time.deltaTime * 2.5f);
+        }
     }
 
     public void IncreaseDiaper(float incrementAmount)
