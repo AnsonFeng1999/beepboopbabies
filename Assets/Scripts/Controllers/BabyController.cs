@@ -57,6 +57,7 @@ public class BabyController : MonoBehaviour
     private static readonly int BabyShaking = Animator.StringToHash("BabyShake");
 
     private bool oilLeaked = false;
+    private bool overCharged = false;       // OverCharge flag, there is an getter for this.
     
     public delegate void BodyPartDetachedHandler();
 
@@ -191,7 +192,7 @@ public class BabyController : MonoBehaviour
         {
             oilLeaked = false;
         }
-        // Consequence for oil is zero
+        // Consequence for oil is zero (baby will slowly decrease health until explode)
         if (oilZero)
         {
             DecreaseHealth(decreaseHealthPerSec * Time.deltaTime);
@@ -258,14 +259,21 @@ public class BabyController : MonoBehaviour
         return false;
     }
 
+    public bool GetOverCharged ()
+    {
+        return overCharged;
+    }
+
     public void IncreaseEnergy(float incrementAmount)
     {
         state.currentEnergy += incrementAmount;
         state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
         uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
+        // Overcharging, currently handle here
         if (state.currentEnergy >= state.energy) 
         {
             DecreaseHealth(decreaseHealthPerSec * Time.deltaTime * 2.5f);
+            overCharged = !overCharged ? true : overCharged;
         }
     }
 

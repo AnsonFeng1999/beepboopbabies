@@ -10,6 +10,7 @@ public class RechargeEnergy : MonoBehaviour
     // Start is called before the first frame update
     private StationInteractable station;
     private static readonly int Recharge = Animator.StringToHash("Recharge");
+    public ChargeStationUIController uiController;
 
     private void Awake()
     {
@@ -51,6 +52,12 @@ public class RechargeEnergy : MonoBehaviour
         if (station.Baby)
         {
             station.Baby.IncreaseEnergy(incrementAmount * Time.deltaTime);
+            uiController.UpdateOverChargeBar(station.Baby.uiController.getHealthBar());
+            uiController.setAlwaysActive(overCharged: station.Baby.GetOverCharged());
+        }
+        else
+        {
+            uiController.setAlwaysActive(false);
         }
     }
 }

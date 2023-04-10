@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351113331700254615}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6460937732620116142
 MeshFilter:
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3861624554023855617}
   - component: {fileID: 8640779014679695862}
   - component: {fileID: 2612585173159959160}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ForeGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351113331700254615}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &3974868851925294381
 GameObject:
@@ -243,10 +243,10 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8411894238660915176}
   - {fileID: 6007679786562020841}
   - {fileID: 2514954023439310981}
   - {fileID: 3526676027248744718}
-  - {fileID: 8411894238660915176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   incrementAmount: 12.5
+  uiController: {fileID: 441352324868523821}
 --- !u!114 &4351113331700254613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351113331700254615}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4548827740397876876
 MeshFilter:
@@ -583,7 +584,7 @@ GameObject:
   - component: {fileID: 4960151218938041908}
   - component: {fileID: 5140671029091161495}
   - component: {fileID: 1842397447231058535}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ExclamationBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,6 +675,7 @@ GameObject:
   - component: {fileID: 4555793776908863476}
   - component: {fileID: 8241231071254473970}
   - component: {fileID: 2789905172246311421}
+  - component: {fileID: 441352324868523821}
   m_Layer: 5
   m_Name: Station UI
   m_TagString: Untagged
@@ -695,7 +697,7 @@ RectTransform:
   m_Children:
   - {fileID: 8488148826301754111}
   m_Father: {fileID: 4351113331700254615}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -763,3 +765,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &441352324868523821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044842859386921038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00ab146af7e27b4d8056de5ef9c02cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overchargeBarSprite: {fileID: 2612585173159959160}
+  overchargeBar: {fileID: 8917941798148044838}
+  stationLocation: {fileID: 4351113331700254615}
+  height: 3
