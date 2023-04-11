@@ -20,7 +20,15 @@ public class ChargeStationUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // make the UI face towards the camera
+        if (_cam != null)
+        {
+            var trans = transform;
+            trans.rotation = Quaternion.LookRotation(trans.position - _cam.transform.position);
+            var eulerAngles = trans.eulerAngles;
+            eulerAngles.y = 0;
+            trans.eulerAngles = eulerAngles;
+        }
     }
     public void SetActive ()
     {
