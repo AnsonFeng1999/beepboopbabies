@@ -267,14 +267,18 @@ public class BabyController : MonoBehaviour
     public void IncreaseEnergy(float incrementAmount)
     {
         state.currentEnergy += incrementAmount;
-        state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
-        uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
         // Overcharging, currently handle here
-        if (state.currentEnergy >= state.energy) 
+        if (state.currentEnergy > state.energy) 
         {
             DecreaseHealth(decreaseHealthPerSec * Time.deltaTime * 2.5f);
-            overCharged = !overCharged ? true : overCharged;
+            overCharged = true;
         }
+        else
+        {
+            overCharged = false;
+        }
+        state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
+        uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
     }
 
     public void IncreaseDiaper(float incrementAmount)
