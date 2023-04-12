@@ -7,12 +7,10 @@ public class ChargeStationUIController : MonoBehaviour
 {
     [SerializeField] private Image overChargedWarning;
     [SerializeField] private Transform stationLocation;
-    private bool? overchargeActive = false;
+    private bool overchargeActive = false;
     private Camera _cam;
 
-    //public float depletionTime = 4f;
-    public float depletionAmount = 0.1f;
-    public float depletionInterval = 1f;
+    public float fadeDuration = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,18 +32,22 @@ public class ChargeStationUIController : MonoBehaviour
             trans.eulerAngles = eulerAngles;
         }
     }
-    public void SetActive ()
+    public void SetActive()
     {
-        overChargedWarning.gameObject.SetActive(overchargeActive.GetValueOrDefault(false));
+        overChargedWarning.gameObject.SetActive(overchargeActive);
     }
 
     public void setAlwaysActive(bool overCharged, bool needsWarning)
     {
         overchargeActive = overCharged;
         SetActive();
-        if (needsWarning)
+        if (needsWarning && overchargeActive)
         {
             StartCoroutine(IconFlash(overChargedWarning));
+        }
+        else
+        {
+            StopCoroutine("IconFlash");
         }
     }
 
@@ -53,27 +55,22 @@ public class ChargeStationUIController : MonoBehaviour
     {
         overChargedWarning.enabled = true;
         Color color = overChargedWarning.color;
-        float alpha = color.a;
 
-        while (alpha > 0.2f)
+        while (true)
         {
-            alpha -= depletionAmount;
-            color.a = alpha;
-            overChargedWarning.color = color;
-            yield return new WaitForSeconds(1f);
+            for (float t = 0f; t < fadeDuration; t += Time.deltaTime)
+            {
+                color.a = Mathf.Lerp(1, 0, t / fadeDuration);
+                overChargedWarning.color = color;
+                yield return null;
+            }
+
+            for (float t = 0f; t < fadeDuration; t += Time.deltaTime)
+            {
+                color.a = Mathf.Lerp(0, 1, t / fadeDuration);
+                overChargedWarning.color = color;
+                yield return null;
+            }
         }
-
-        yield return new WaitForSeconds(5f);
-
-        while (alpha < 1f)
-        {
-            alpha += depletionAmount;
-            color.a = alpha;
-            overChargedWarning.color = color;
-            yield return new WaitForSeconds(1f);
-        }
-
-        color.a = 1.0f;
-        overChargedWarning.color = color;
     }
 }
