@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// "https://www.flaticon.com/free-icons/exclamation-mark" title="exclamation mark icons">Exclamation mark icons created by flatart_icons
+
 public class ChargeStationUIController : MonoBehaviour
 {
     [SerializeField] private Image overChargedWarning;
