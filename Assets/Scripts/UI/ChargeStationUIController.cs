@@ -7,6 +7,8 @@ public class ChargeStationUIController : MonoBehaviour
 {
     [SerializeField] private Image overChargedWarning;
     [SerializeField] private Transform stationLocation;
+    [SerializeField] private float height = 7f;
+    [SerializeField] private float width = -0.25f;
     private bool overchargeActive = false;
     private bool needsWarningHealth = false;
     private Camera _cam;
@@ -27,6 +29,7 @@ public class ChargeStationUIController : MonoBehaviour
         if (_cam != null)
         {
             var trans = transform;
+            trans.position = stationLocation.position + height * Vector3.up + width * Vector3.right;
             trans.rotation = Quaternion.LookRotation(trans.position - _cam.transform.position);
             var eulerAngles = trans.eulerAngles;
             eulerAngles.y = 0;
