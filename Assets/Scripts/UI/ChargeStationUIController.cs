@@ -8,6 +8,7 @@ public class ChargeStationUIController : MonoBehaviour
     [SerializeField] private Image overChargedWarning;
     [SerializeField] private Transform stationLocation;
     private bool overchargeActive = false;
+    private bool needsWarningHealth = false;
     private Camera _cam;
 
     public float fadeDuration = 1.0f;
@@ -37,17 +38,18 @@ public class ChargeStationUIController : MonoBehaviour
         overChargedWarning.gameObject.SetActive(overchargeActive);
     }
 
-    public void setAlwaysActive(bool overCharged, bool needsWarning)
+    public void SetAlwaysActive(bool overCharged, bool needsWarning)
     {
         overchargeActive = overCharged;
+        needsWarningHealth = needsWarning;
         SetActive();
-        if (needsWarning && overchargeActive)
+        if (needsWarningHealth && overchargeActive)
         {
             StartCoroutine(IconFlash(overChargedWarning));
         }
         else
         {
-            StopCoroutine("IconFlash");
+            StopCoroutine(nameof(IconFlash));
         }
     }
 
@@ -56,7 +58,7 @@ public class ChargeStationUIController : MonoBehaviour
         overChargedWarning.enabled = true;
         Color color = overChargedWarning.color;
 
-        while (true)
+        while (needsWarningHealth)
         {
             for (float t = 0f; t < fadeDuration; t += Time.deltaTime)
             {

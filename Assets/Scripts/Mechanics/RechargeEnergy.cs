@@ -54,12 +54,12 @@ public class RechargeEnergy : MonoBehaviour
             station.Baby.IncreaseEnergy(incrementAmount * Time.deltaTime);
             if (station.Baby.uiController.getHealthBar() <= 0.75f)
             {
-                uiController.setAlwaysActive(station.Baby.GetOverCharged(), station.Baby.uiController.getHealthBar() <= 0.25f);
+                uiController.SetAlwaysActive(station.Baby.GetOverCharged(), station.Baby.uiController.getHealthBar() <= 0.25f);
             }
         }
         else
         {
-            uiController.setAlwaysActive(false, false);
+            uiController.SetAlwaysActive(false, false);
         }
     }
 }
