@@ -53,7 +53,7 @@ public class BabyUIController : MonoBehaviour
          if (healthbarSprite.fillAmount.Equals(0))
             return 0;
         else
-            return healthbarSprite.fillAmount > 0.5f ? 1 : 0.5f;
+            return healthbarSprite.fillAmount;
     }
     public float getEnergyBar()
     {

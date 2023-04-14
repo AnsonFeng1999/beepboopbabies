@@ -32,7 +32,6 @@ public class BabyController : MonoBehaviour
     public GameObject oilPuddle;
     // every one 1 second decrement by 2 units
     [SerializeField] private float decrementAmountEnergy = 2f;
-    private float decreaseHealthPerKick = 10f;
     [SerializeField] private float decrementAmountDiaper = 2f;
     [SerializeField] private float oilDrinkAmountOil = 2f;
     [SerializeField] private float decrementAmountOil = 2f;
@@ -51,11 +50,14 @@ public class BabyController : MonoBehaviour
     private bool leftLegMissing;
     private BabyState state;
     private float healthDecreasePerDrop;
+    private float decreaseHealthPerKick = 10f;
+    private float decreaseHealthPerSec = 1f; // This is used when out of oil, health will slowly decrease
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int InStation = Animator.StringToHash("InStation");
     private static readonly int BabyShaking = Animator.StringToHash("BabyShake");
 
     private bool oilLeaked = false;
+    private bool overCharged = false;       // OverCharge flag, there is an getter for this.
     
     public delegate void BodyPartDetachedHandler();
 
@@ -175,7 +177,7 @@ public class BabyController : MonoBehaviour
             isLocked = false;
             interactable.UnlockBaby();
         }
-        else if (!isLocked && (healthZero || energyZero || oilZero))
+        else if (!isLocked && (healthZero || energyZero))
         {
             isLocked = true;
             interactable.LockBaby();
@@ -189,6 +191,11 @@ public class BabyController : MonoBehaviour
         else if (state.currentDiaper > 0.9f)
         {
             oilLeaked = false;
+        }
+        // Consequence for oil is zero (baby will slowly decrease health until explode)
+        if (oilZero)
+        {
+            DecreaseHealth(decreaseHealthPerSec * Time.deltaTime);
         }
     }
 
@@ -252,9 +259,24 @@ public class BabyController : MonoBehaviour
         return false;
     }
 
+    public bool GetOverCharged ()
+    {
+        return overCharged;
+    }
+
     public void IncreaseEnergy(float incrementAmount)
     {
         state.currentEnergy += incrementAmount;
+        // Overcharging, currently handle here
+        if (state.currentEnergy > state.energy) 
+        {
+            DecreaseHealth(decreaseHealthPerSec * Time.deltaTime * 2.5f);
+            overCharged = true;
+        }
+        else
+        {
+            overCharged = false;
+        }
         state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
         uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
     }
@@ -334,6 +356,17 @@ public class BabyController : MonoBehaviour
         }
     }
 
+    private void DecreaseHealth(float decreaseAmount)
+    { 
+        if (state.currentHealth >= 0)
+        {
+            state.currentHealth = Mathf.Max(state.currentHealth - decreaseAmount, 0);
+            state.currentHealth = Mathf.Min(state.currentHealth, state.healthcap);
+            uiController.UpdateHealthBar(state.health, state.currentHealth);
+            
+        }
+    }
+
     private void DetachBodyPart(int index)
     {
         var bodyPart = bodyPartsToHide[index];
@@ -408,9 +441,7 @@ public class BabyController : MonoBehaviour
                   // randomly choose a body part
                     DetachBodyPart(UnityEngine.Random.Range(0, bodyPartsToHide.Count));
                 }
-                state.currentHealth = Mathf.Max(state.currentHealth - healthDecreasePerDrop, 0);
-                state.currentHealth = Mathf.Min(state.currentHealth, state.healthcap);
-                uiController.UpdateHealthBar(state.health, state.currentHealth);
+                DecreaseHealth(healthDecreasePerDrop);
                 StartCoroutine(TemporaryAlert(health: true));
             }
             if (rightLegMissing || leftLegMissing)
@@ -443,9 +474,7 @@ public class BabyController : MonoBehaviour
 
     private void HandleKicked()
     {
-        state.currentHealth = Mathf.Max(state.currentHealth - decreaseHealthPerKick, 0);
-        state.currentHealth = Mathf.Min(state.currentHealth, state.healthcap);
-        uiController.UpdateHealthBar(state.health, state.currentHealth);
+        DecreaseHealth(decreaseHealthPerKick);
         StartCoroutine(TemporaryAlert(health: true));
         state.isFlying = true;
         interactable.DisableAI();
