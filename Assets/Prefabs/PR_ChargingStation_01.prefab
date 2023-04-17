@@ -703,8 +703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overChargedWarning: {fileID: 5140671029091161495}
   stationLocation: {fileID: 4351113331700254615}
-  height: 7
-  width: -0.25
+  height: 5
+  width: -3.8
   fadeDuration: 1
 --- !u!114 &3483392716092442026
 MonoBehaviour:
