@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 84cb93e5eba4b44e9927aec553021fa8
     GuidInternal: 
-    m_lastTime: -8585197724247973779
+    m_lastTime: -8585197596946375090
     List:
     - name: Main
       guid: dc8fcea271ced64e9ffeac03664833b7
@@ -94,8 +94,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 3f59f46f0995ab4ba9213fad56bfa75f
     GuidInternal: 
-    m_lastTime: -8585197724318823735
+    m_lastTime: -8585197610944049949
     List:
+    - name: play_BeepBoopSpaceship_bpm172
+      guid: 06048dfd680c10449916ff3b9ccb1469
+      id: 101010766
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3f59f46f0995ab4ba9213fad56bfa75f
+      - ElementName: play_BeepBoopSpaceship_bpm172
+        ObjectType: 3
+        guid: 06048dfd680c10449916ff3b9ccb1469
+      Path: Events\Default Work Unit\play_BeepBoopSpaceship_bpm172
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: sfx_baby_clunks
       guid: 85c732accfd8e34f96aa58e0a15a16f1
       id: 3023854366
@@ -113,6 +130,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: stop_BeepBoopSpaceship_bpm172
+      guid: 88eb5f86579b33449ce981f4dd0690e7
+      id: 2230361496
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3f59f46f0995ab4ba9213fad56bfa75f
+      - ElementName: stop_BeepBoopSpaceship_bpm172
+        ObjectType: 3
+        guid: 88eb5f86579b33449ce981f4dd0690e7
+      Path: Events\Default Work Unit\stop_BeepBoopSpaceship_bpm172
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -125,8 +159,22 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 1b384bd08f49b04584f977a69b05b7b7
     GuidInternal: 
-    m_lastTime: -8585197746372187802
-    List: []
+    m_lastTime: -8585197624179094519
+    List:
+    - name: isTwelveOclock
+      guid: db2a112d47d60e4ab18cc91778643454
+      id: 2577102345
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b384bd08f49b04584f977a69b05b7b7
+      - ElementName: isTwelveOclock
+        ObjectType: 13
+        guid: db2a112d47d60e4ab18cc91778643454
+      Path: Game Parameters\Default Work Unit\isTwelveOclock
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -139,8 +187,74 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 69991d4da25d0d4aa97e4986ad99528e
     GuidInternal: 
-    m_lastTime: -8585197746371427631
-    List: []
+    m_lastTime: -8585197616851651995
+    List:
+    - name: Hurry
+      guid: 68a50299ebe4f0478eade2b455fbdcb9
+      id: 3569468629
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 69991d4da25d0d4aa97e4986ad99528e
+      - ElementName: Hurry
+        ObjectType: 9
+        guid: 68a50299ebe4f0478eade2b455fbdcb9
+      Path: States\Default Work Unit\Hurry
+      values:
+      - name: Hurry
+        guid: f7e08faa8cb3ab419b18fd8c85e4478a
+        id: 3569468629
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 69991d4da25d0d4aa97e4986ad99528e
+        - ElementName: Hurry
+          ObjectType: 9
+          guid: 68a50299ebe4f0478eade2b455fbdcb9
+        - ElementName: Hurry
+          ObjectType: 8
+          guid: f7e08faa8cb3ab419b18fd8c85e4478a
+      - name: None
+        guid: 425a39452b98084598b5009c11647725
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 69991d4da25d0d4aa97e4986ad99528e
+        - ElementName: Hurry
+          ObjectType: 9
+          guid: 68a50299ebe4f0478eade2b455fbdcb9
+        - ElementName: None
+          ObjectType: 8
+          guid: 425a39452b98084598b5009c11647725
+      - name: Relaxed
+        guid: 9bd18222545b8d4797618b50003d6f9d
+        id: 1778460554
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 69991d4da25d0d4aa97e4986ad99528e
+        - ElementName: Hurry
+          ObjectType: 9
+          guid: 68a50299ebe4f0478eade2b455fbdcb9
+        - ElementName: Relaxed
+          ObjectType: 8
+          guid: 9bd18222545b8d4797618b50003d6f9d
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:
@@ -170,7 +284,7 @@ MonoBehaviour:
     m_lastTime: -8585197746370817487
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 05000000060000000a0000000b0000000d0000000e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

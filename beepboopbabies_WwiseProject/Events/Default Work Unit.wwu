@@ -14,6 +14,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="play_BeepBoopSpaceship_bpm172" ID="{FD8D0406-0C68-4410-9916-FF3B9CCB1469}">
+					<ChildrenList>
+						<Action Name="" ID="{F62BC4D2-8B81-4DBB-A877-306C03042B47}" ShortID="942442932">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BeepBoopSpaceship" ID="{179CD1B2-3A5A-4673-B5AB-B2B394E8F4E2}" WorkUnitID="{E531549E-71B2-45B2-ACC7-C33085C40688}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_BeepBoopSpaceship_bpm172" ID="{865FEB88-9B57-4433-9CE9-81F4DD0690E7}">
+					<ChildrenList>
+						<Action Name="" ID="{DF7343D2-0A70-48DE-A86C-FF311A00AFB7}" ShortID="300952923">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BeepBoopSpaceship" ID="{179CD1B2-3A5A-4673-B5AB-B2B394E8F4E2}" WorkUnitID="{E531549E-71B2-45B2-ACC7-C33085C40688}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

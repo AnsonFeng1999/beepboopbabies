@@ -13,8 +13,31 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_BEEPBOOPSPACESHIP_BPM172 = 101010766U;
         static const AkUniqueID SFX_BABY_CLUNKS = 3023854366U;
+        static const AkUniqueID STOP_BEEPBOOPSPACESHIP_BPM172 = 2230361496U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace HURRY
+        {
+            static const AkUniqueID GROUP = 3569468629U;
+
+            namespace STATE
+            {
+                static const AkUniqueID HURRY = 3569468629U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID RELAXED = 1778460554U;
+            } // namespace STATE
+        } // namespace HURRY
+
+    } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID ISTWELVEOCLOCK = 2577102345U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
