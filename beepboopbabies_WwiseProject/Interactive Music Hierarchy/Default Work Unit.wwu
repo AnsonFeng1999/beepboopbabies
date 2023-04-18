@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E531549E-71B2-45B2-ACC7-C33085C40688}" SchemaVersion="110">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{E531549E-71B2-45B2-ACC7-C33085C40688}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="BeepBoopSpaceship" ID="{179CD1B2-3A5A-4673-B5AB-B2B394E8F4E2}" ShortID="29077389">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{239365BA-2B82-42B4-8E10-F428684A8042}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+						</Reference>
+					</ReferenceList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{95D4EE24-6169-4DC3-BBC9-1697731328A5}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{77D1E2A0-1B04-498F-8AB8-D732D9B16E43}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+				</MusicSwitchContainer>
+				<MusicPlaylistContainer Name="BeepBoopSpaceshipNormal" ID="{B3D8BD6F-A026-4489-83E5-ADDC13AC3CF4}" ShortID="802055695">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{239365BA-2B82-42B4-8E10-F428684A8042}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="New Music Segment" ID="{3B676F36-E09A-464F-9500-ECE6F6C47C5A}" ShortID="1070834618">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="44651.156462585"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{239365BA-2B82-42B4-8E10-F428684A8042}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal" ID="{87746C63-153E-41EB-8AC6-F23EBA782318}" ShortID="806036522">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal" ID="{5336A738-A69B-4AF9-8A91-8BFA52D52E3A}">
+											<Language>SFX</Language>
+											<AudioFile>BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="963975617"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{71FA22A1-10B2-4CA3-94A8-1E4CB6A5B9D7}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{7DEB6C9F-E064-4B9D-BA15-58158EA8F33B}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal" ID="{CFAA3F2B-04AA-4D59-ABA8-426C63B249A0}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="44651.156462585"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal" ID="{5336A738-A69B-4AF9-8A91-8BFA52D52E3A}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+								<MusicTrack Name="BeepBoopSpaceship_bpm172_morning" ID="{0E5302B0-4882-4205-83FE-D51B5113B74F}" ShortID="42026711">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BeepBoopSpaceship_bpm172_morning" ID="{51CBD94F-F2DA-4433-BA82-715A752E12D8}">
+											<Language>SFX</Language>
+											<AudioFile>BeepBoopSpaceship_bpm172_morning.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="56564008"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{DE16A981-A4D7-46DE-8391-C7F569FAE46D}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{AE0C7F52-3903-4D93-9EA4-59CD0D9B4B07}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="BeepBoopSpaceship_bpm172_morning" ID="{70AB0891-AC77-463B-B602-6A4AFC49829B}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="44651.156462585"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="BeepBoopSpaceship_bpm172_morning" ID="{51CBD94F-F2DA-4433-BA82-715A752E12D8}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+								<MusicTrack Name="BeepBoopSpaceship_bpm172_intro" ID="{A8E0D423-0CC7-4CDE-AD4A-778AAB67C175}" ShortID="604927279">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BeepBoopSpaceship_bpm172_intro" ID="{9E33AE13-56EE-430F-BA97-308DE9F30885}">
+											<Language>SFX</Language>
+											<AudioFile>BeepBoopSpaceship_bpm172_intro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1073044347"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{58B5B7D5-7AD8-48A9-A7E1-DF2E4ECAC13F}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{CB0BE1A1-BA4D-48FB-B9D5-A5D6D322B93E}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="BeepBoopSpaceship_bpm172_intro" ID="{DF6264B8-B1A1-42AC-B724-18100F3FC3CF}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="1395.3514739229"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="BeepBoopSpaceship_bpm172_intro" ID="{9E33AE13-56EE-430F-BA97-308DE9F30885}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+								<MusicTrack Name="BeepBoopSpaceship_bpm172_midday" ID="{B24FD24F-0545-43CE-856D-F0573B914287}" ShortID="745732730">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9D83E412-4BEB-45B6-BDA7-694F235E75F0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BeepBoopSpaceship_bpm172_midday" ID="{D041CAE4-4DF1-4325-A2C8-DF2479E670DF}">
+											<Language>SFX</Language>
+											<AudioFile>BeepBoopSpaceship_bpm172_midday.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="387787741"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{CEEEBF0D-B9BF-43FF-9A6B-D21C22F4763C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{281148AF-4D1B-4864-8BB3-533A2AB396AE}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="BeepBoopSpaceship_bpm172_midday" ID="{3C367CE5-A8BE-4BF3-840F-537250BFC52D}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="44651.156462585"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="BeepBoopSpaceship_bpm172_midday" ID="{D041CAE4-4DF1-4325-A2C8-DF2479E670DF}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{5A0351DE-AFE5-4FC6-98F3-83C05F3D8815}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{C251FBE1-275C-44D6-A685-1C9178FC5423}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{ECBC7967-3851-4CD6-98D2-07F1FF7F4A8D}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{09063C8F-7F3A-406E-A38F-BA9D096DB2D9}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{953D0697-22F9-4ABA-93FD-82E551F822FB}" ShortID="937173766"/>
+					</Playlist>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

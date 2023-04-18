@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E593CB84-A4EB-4EB4-9927-AEC553021FA8}" SchemaVersion="110">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{E593CB84-A4EB-4EB4-9927-AEC553021FA8}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{A2CE8FDC-CE71-4ED6-9FFE-AC03664833B7}">
+					<ObjectInclusionList>
+						<ObjectRef Name="sfx_baby_clunks" ID="{AC32C785-D8CF-4FE3-96AA-58E0A15A16F1}" WorkUnitID="{6FF4593F-9509-4BAB-A921-3FAD56BFA75F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

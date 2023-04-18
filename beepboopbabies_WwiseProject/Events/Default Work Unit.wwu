@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6FF4593F-9509-4BAB-A921-3FAD56BFA75F}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{6FF4593F-9509-4BAB-A921-3FAD56BFA75F}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="sfx_baby_clunks" ID="{AC32C785-D8CF-4FE3-96AA-58E0A15A16F1}">
+					<ChildrenList>
+						<Action Name="" ID="{2C39B4C6-3E0E-4807-9CFD-2B131C4ED7AF}" ShortID="759731840">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_baby_clunks" ID="{3F3A166A-A2A2-4674-92BE-F73A5E7D336E}" WorkUnitID="{4D232DAB-D6D3-4E1A-AC5B-3CF75A568914}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

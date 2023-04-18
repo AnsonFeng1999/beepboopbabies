@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3023854366	sfx_baby_clunks			\Default Work Unit\sfx_baby_clunks	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	620566595	sfx_baby_wall_hit_2	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_2		176496
+	627865425	sfx_baby_wall_hit_1	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_1		176496
+	958869943	sfx_baby_wall_hit_3	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_3		176496
+
