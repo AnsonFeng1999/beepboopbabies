@@ -1,0 +1,27 @@
+Event	ID	Name			Wwise Object Path	Notes
+	101010766	play_BeepBoopSpaceship_bpm172			\Default Work Unit\play_BeepBoopSpaceship_bpm172	
+	2230361496	stop_BeepBoopSpaceship_bpm172			\Default Work Unit\stop_BeepBoopSpaceship_bpm172	
+	3023854366	sfx_baby_clunks			\Default Work Unit\sfx_baby_clunks	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3569468629	Hurry			\Default Work Unit\Hurry	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Hurry			
+	1778460554	Relaxed	Hurry			
+	3569468629	Hurry	Hurry			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2577102345	isTwelveOclock			\Default Work Unit\isTwelveOclock	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	56564008	BeepBoopSpaceship_bpm172_morning	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm172_morning_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipNormal\BeepBoopSpaceship_bpm172_song\BeepBoopSpaceship_bpm172_morning		7876560
+	387787741	BeepBoopSpaceship_bpm172_midday	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm172_midday_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipNormal\BeepBoopSpaceship_bpm172_song\BeepBoopSpaceship_bpm172_midday		7876560
+	545488983	BeepBoopSpaceship_bpm200_hurry_trigger	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm200_hurry_trigger_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipHurry\BBS_Hurry_Up_Cue_bpm200\BeepBoopSpaceship_bpm200_hurry_trigger		582216
+	620566595	sfx_baby_wall_hit_2	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_2		176496
+	627865425	sfx_baby_wall_hit_1	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_1		176496
+	958850173	BeepBoopSpaceship_bpm200_hurry	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm200_hurry_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipHurry\BBS_Hurry_Up_bpm200\BeepBoopSpaceship_bpm200_hurry		6562176
+	958869943	sfx_baby_wall_hit_3	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\sfx_baby_wall_hit_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_baby_clunks\sfx_baby_wall_hit_3		176496
+	963975617	BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipNormal\BeepBoopSpaceship_bpm172_song\BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal		7876560
+	1073044347	BeepBoopSpaceship_bpm172_intro	C:\Users\Ethan Larose\Documents\trickfoolery march 4th\beepboopbabies\beepboopbabies_WwiseProject\.cache\Mac\SFX\BeepBoopSpaceship_bpm172_intro_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\BeepBoopSpaceship\BeepBoopSpaceshipNormal\BeepBoopSpaceship_bpm172_intro\BeepBoopSpaceship_bpm172_intro		246236
+

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using AK.Wwise;
 
 public class TimerClock : MonoBehaviour
 {
@@ -11,8 +12,13 @@ public class TimerClock : MonoBehaviour
     public Text TimerTxt;
     public AudioSource CD;//Audio for countdown
 
+    //wwise
+    public AK.Wwise.Event playBeepBoopSpaceship;
+
     void Start()
     {
+        playBeepBoopSpaceship.Post(gameObject);
+        AkSoundEngine.SetState("Hurry", "Relaxed");
         timeon = true;
         //TimerTxt.text = "8:00";
     }
@@ -57,6 +63,16 @@ public class TimerClock : MonoBehaviour
                 //EZCameraShake.CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f); //disabled camera shake at 2mins
             }
 
+            //turning 12:00
+        if (CurrentTime >= 360)
+        {
+            AkSoundEngine.SetRTPCValue("isTwelveOclock", 1);
+        }
+            //35 seconds left (left time for the trigger)
+        if (CurrentTime >= 560)
+        {
+            AkSoundEngine.SetState("Hurry", "Hurry");
+        }
         }
         if (min + 6 - 12 >= 5 && sec == 40.0f)
         {

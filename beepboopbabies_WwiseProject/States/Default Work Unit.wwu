@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4D1D9969-5DA2-4A0D-A97E-4986AD99528E}" SchemaVersion="110">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{4D1D9969-5DA2-4A0D-A97E-4986AD99528E}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Hurry" ID="{9902A568-E4EB-47F0-8EAD-E2B455FBDCB9}">
+					<ChildrenList>
+						<State Name="None" ID="{45395A42-982B-4508-98B5-009C11647725}"/>
+						<State Name="Relaxed" ID="{2282D19B-5B54-478D-9761-8B50003D6F9D}"/>
+						<State Name="Hurry" ID="{AA8FE0F7-B38C-41AB-9B18-FD8C85E4478A}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

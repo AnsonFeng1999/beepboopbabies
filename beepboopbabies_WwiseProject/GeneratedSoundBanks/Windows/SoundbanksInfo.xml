@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5F7B44B1-5457-A11E-68C5-1EA3E763D822}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="2577102345" Name="isTwelveOclock"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="3569468629" Name="Hurry">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1778460554" Name="Relaxed"/>
+						<State Id="3569468629" Name="Hurry"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{163842EB-9C04-BFA0-C63E-501C2376C995}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="56564008" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm172_morning.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm172_morning_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="387787741" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm172_midday.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm172_midday_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="545488983" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm200_hurry_trigger.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm200_hurry_trigger_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="620566595" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_baby_wall_hit_2.wav</ShortName>
+					<CachePath>SFX/sfx_baby_wall_hit_2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="627865425" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_baby_wall_hit_1.wav</ShortName>
+					<CachePath>SFX/sfx_baby_wall_hit_1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="958850173" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm200_hurry.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm200_hurry_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="958869943" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_baby_wall_hit_3.wav</ShortName>
+					<CachePath>SFX/sfx_baby_wall_hit_3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="963975617" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm172_VNpno_Perc_Line_Vocal_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="1073044347" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BeepBoopSpaceship_bpm172_intro.wav</ShortName>
+					<CachePath>SFX/BeepBoopSpaceship_bpm172_intro_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="101010766" Name="play_BeepBoopSpaceship_bpm172" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3569468629" Id="1778460554"/>
+							<MediaRefs>
+								<MediaRef Id="56564008"/>
+								<MediaRef Id="387787741"/>
+								<MediaRef Id="963975617"/>
+								<MediaRef Id="1073044347"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3569468629" Id="3569468629"/>
+							<MediaRefs>
+								<MediaRef Id="545488983"/>
+								<MediaRef Id="958850173"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3023854366" Name="sfx_baby_clunks" DurationType="OneShot" DurationMin="0.8771122" DurationMax="1.140105">
+					<MediaRefs>
+						<MediaRef Id="620566595"/>
+						<MediaRef Id="627865425"/>
+						<MediaRef Id="958869943"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2230361496" Name="stop_BeepBoopSpaceship_bpm172" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="2577102345" Name="isTwelveOclock"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="3569468629" Name="Hurry">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1778460554" Name="Relaxed"/>
+						<State Id="3569468629" Name="Hurry"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{580EEF72-7390-9615-C00F-04BDB19748CA}</FileHash>
+</SoundBanksInfo>
