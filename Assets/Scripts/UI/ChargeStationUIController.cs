@@ -9,8 +9,8 @@ public class ChargeStationUIController : MonoBehaviour
 {
     [SerializeField] private Image overChargedWarning;
     [SerializeField] private Transform stationLocation;
-    [SerializeField] private float height = 7f;
-    [SerializeField] private float width = -0.25f;
+    [SerializeField] private float height = 5f;
+    [SerializeField] private float width = -3.8f;
     private bool overchargeActive = false;
     private bool needsWarningHealth = false;
     private Camera _cam;
