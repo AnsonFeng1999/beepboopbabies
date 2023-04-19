@@ -19,8 +19,8 @@ public class ScoreManager : MonoBehaviour
         get; private set;
     }
 
-    public float CurrentTime { get; private set; } = 150f; //set total game length
-    private float ParentReturnTime = 40f; //set parent return time
+    public float CurrentTime { get; private set; } = 40f; //set total game length
+    private float ParentReturnTime = 30f; //40f; //set parent return time
     public float AllTime { get; private set; }
 
     public bool IsGameOver { get; private set; }
@@ -39,14 +39,17 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         UpdateTime();
-        // TODO:
+        Debug.Log("Parent return condition: " + (CurrentTime < ParentReturnTime && !LevelsManager.Instance.IsTutorial));
+        Debug.Log("Is Tutorial: " + LevelsManager.Instance.IsTutorial);
+        Debug.Log("Current Return time: " + (CurrentTime < ParentReturnTime));
         if (CurrentTime < ParentReturnTime && !LevelsManager.Instance.IsTutorial)
         {
-            // make each parent return to their kid
+            Debug.Log("returning to kids");
             ParentSpawnManager.Instance.ReturnParents();
         }
         if (CurrentTime <= 0 && !IsGameOver && !LevelsManager.Instance.IsTutorial)
         {
+            Debug.Log("END GAME");
             GameObject.Find("babis level music").GetComponent<AudioSource>().enabled = false;
             //PlayerPrefs.SetFloat("music", 0);
             StartCoroutine(EndGame());

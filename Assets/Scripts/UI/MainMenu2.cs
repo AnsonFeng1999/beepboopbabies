@@ -26,7 +26,7 @@ public class MainMenu2 : MonoBehaviour
 
     private void Update()
     {
-        LevelsManager.Instance.Level = levelDropdown.value;
+        LevelsManager.Instance.Level = levelDropdown.value + 1;
         LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
         
         PlayerPrefs.SetFloat("sfx", SFX.value);
@@ -48,13 +48,14 @@ public class MainMenu2 : MonoBehaviour
     public void PlayGame()
     {
         LevelsManager.Instance.CurrentMap = LevelsManager.Map.Classic;
-        LevelsManager.Instance.Level = LevelsManager.Instance.UnlockedLevel > 0 ? 1 : 0;
+        LevelsManager.Instance.ContinueGame = false;
+        LevelsManager.Instance.Level = 0;
         SceneManager.LoadScene("Select");
     }
     public void ContineGame()
     {
-        if (LevelsManager.Instance.Level > LevelsManager.Instance.UnlockedLevel) return;
         LevelsManager.Instance.Level = levelDropdown.value;
+        LevelsManager.Instance.ContinueGame = true;
         LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
         SceneManager.LoadScene("Select");
     }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(StationInteractable))]
 [RequireComponent(typeof(BabyStationAudioPlayer))]
@@ -7,6 +8,9 @@ public class RechargeEnergy : MonoBehaviour
 {
     // how long it will take to recharge to full
     public float incrementAmount = 5f;
+    public float decreaseHealthOverCharge = 10f;
+    public GameObject overchargeEffect;
+    private GameObject overchargeEffectInner;
     // Start is called before the first frame update
     private StationInteractable station;
     private static readonly int Recharge = Animator.StringToHash("Recharge");
@@ -51,10 +55,29 @@ public class RechargeEnergy : MonoBehaviour
     {
         if (station.Baby)
         {
-            station.Baby.IncreaseEnergy(incrementAmount * Time.deltaTime);
             if (station.Baby.uiController.getHealthBar() <= 0.75f)
             {
-                uiController.SetAlwaysActive(station.Baby.GetOverCharged(), station.Baby.uiController.getHealthBar() <= 0.25f);
+                uiController.SetAlwaysActive(station.Baby.GetOverCharged(), station.Baby.uiController.getHealthBar() <= 0.5f);
+            }
+            if (station.Baby.GetOverCharged()) 
+            {
+                station.Baby.DecreaseHealth(decreaseHealthOverCharge * Time.deltaTime);
+                station.Baby.uiController.SetAlwaysActive(health: true);
+                if (overchargeEffectInner == null)
+                {
+                    overchargeEffectInner = Instantiate(overchargeEffect, transform.position + Vector3.up, Quaternion.identity);
+                }
+            }
+            else
+            {
+                station.Baby.uiController.SetAlwaysActive(health: false);
+                station.Baby.IncreaseEnergy(incrementAmount * Time.deltaTime);
+                if (overchargeEffectInner != null)
+                {
+                    Destroy(overchargeEffectInner);
+                    overchargeEffectInner = null;
+                }
+                
             }
         }
         else

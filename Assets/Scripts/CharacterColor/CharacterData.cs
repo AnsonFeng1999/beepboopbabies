@@ -15,10 +15,10 @@ public class CharacterData : MonoBehaviour
 
     public const int MaxIndex = 4;
 
-    public static List<int> devices = new List<int>();
-    public static Dictionary<int, PlayerInput> deviceToPlayerInput = new Dictionary<int, PlayerInput>();
+    public static List<int> devices = new();
+    public static Dictionary<int, PlayerInput> deviceToPlayerInput = new();
     // Map device id to its selected index
-    public static Dictionary<int, int> deviceToIndex = new Dictionary<int, int>();
+    public static Dictionary<int, int> deviceToIndex = new();
 
     private List<bool> lockedIn;
     
@@ -55,6 +55,7 @@ public class CharacterData : MonoBehaviour
     
     public void StartGame()
     {
+        LevelsManager.Instance.numberOfPlayers = devices.Count;
         LevelsManager.Instance.LoadLevelScene();
     }
 

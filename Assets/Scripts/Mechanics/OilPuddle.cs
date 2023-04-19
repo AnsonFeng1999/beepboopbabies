@@ -14,7 +14,6 @@ public class OilPuddle : MonoBehaviour
             velo.y = 0;
             velo.Normalize();
             velo.y = 1;
-            
             baby.Kick(velo * 3);
             baby.GetComponent<Rigidbody>().angularVelocity = velo * 10;
             return;

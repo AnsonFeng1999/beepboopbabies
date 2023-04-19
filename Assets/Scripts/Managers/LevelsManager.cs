@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelsManager
 {
-    public static LevelsManager Instance = new LevelsManager();
-
+    public static LevelsManager Instance = new();
+    public int numberOfPlayers = 1;
+    public bool ContinueGame = false;
+    
     public enum Map
     {
         Classic = 0,
@@ -40,10 +42,10 @@ public class LevelsManager
     {
         Level = UnlockedLevel;
     }
-
+    
     public void LoadLevelScene()
     {
-        if (IsTutorial)
+        if (!ContinueGame)
         {
             SceneManager.LoadScene("Tutorial");
         }

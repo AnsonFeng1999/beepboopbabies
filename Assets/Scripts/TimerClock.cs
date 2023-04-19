@@ -11,7 +11,8 @@ public class TimerClock : MonoBehaviour
     public bool timeon = false;
     public Text TimerTxt;
     public AudioSource CD;//Audio for countdown
-
+    public bool Noon;
+    public bool EndTime;
     //wwise
     public AK.Wwise.Event playBeepBoopSpaceship;
 
@@ -61,18 +62,21 @@ public class TimerClock : MonoBehaviour
                 Debug.Log("Play Camera Shake");
                 isPlay = true;
                 //EZCameraShake.CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f); //disabled camera shake at 2mins
-            }
-
+            } 
+            
+            
             //turning 12:00
-        if (CurrentTime >= 360)
-        {
-            AkSoundEngine.SetRTPCValue("isTwelveOclock", 1);
-        }
+            if (!Noon && CurrentTime >= 360)
+            {
+                AkSoundEngine.SetRTPCValue("isTwelveOclock", 1);
+                Noon = true;
+            }
             //35 seconds left (left time for the trigger)
-        if (CurrentTime >= 560)
-        {
-            AkSoundEngine.SetState("Hurry", "Hurry");
-        }
+            if (!EndTime && CurrentTime >= 560)
+            {
+                AkSoundEngine.SetState("Hurry", "Hurry");
+                EndTime = true;
+            }
         }
         if (min + 6 - 12 >= 5 && sec == 40.0f)
         {

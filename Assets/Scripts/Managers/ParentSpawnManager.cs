@@ -248,9 +248,23 @@ public class ParentSpawnManager : MonoBehaviour
     
     public void ReturnParents()
     {
-        foreach (var p in parentStates)
+
+        Debug.Log("Parent state count " + parentStates.Count);
+        if (parentStates.Count == 0)
         {
-            p.returnToKids = true;
+            var parentFallback = FindObjectsOfType<ParentState>();
+            Debug.Log("Fallback parent state length: " + parentFallback.Length);
+            for (int i = 0; i < parentFallback.Length; i++)
+            {
+                parentFallback[i].returnToKids = true;
+            }
+        }
+        else
+        {
+            foreach (var p in parentStates)
+            {
+                p.returnToKids = true;
+            }
         }
     }
 

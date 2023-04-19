@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -11,10 +12,12 @@ using Random = UnityEngine.Random;
 public class BabyController : MonoBehaviour
 {
     public AudioSource explodeSound;
+    public AudioSource leakSound;
     // Start is called before the first frame update
     public BabyUIController uiController;
     public GameObject Floor;
     public GameObject explosionEffect;
+    public GameObject oilLeakEffect;
     private BabyPickUpInteractable interactable;
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject basebaby;
@@ -52,9 +55,11 @@ public class BabyController : MonoBehaviour
     private float healthDecreasePerDrop;
     private float decreaseHealthPerKick = 10f;
     private float decreaseHealthPerSec = 1f; // This is used when out of oil, health will slowly decrease
+    private float decreaseHealthOverCharge = 10f; // used when diaper is
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int InStation = Animator.StringToHash("InStation");
     private static readonly int BabyShaking = Animator.StringToHash("BabyShake");
+    private GameObject overchargeEffectInner;
 
     private bool oilLeaked = false;
     private bool overCharged = false;       // OverCharge flag, there is an getter for this.
@@ -146,8 +151,15 @@ public class BabyController : MonoBehaviour
         // Consequence for health (baby will explode if health is 0)
         if (healthIsZero && !healthZero)
         {
+            var station = GetComponentInParent<StationInteractable>();
+            if (station)
+            {
+                Debug.Log("Baby Health bar zero dropping baby");
+                station.pickedUpObject.Drop(station.GetComponent<AgentState>());
+                station.pickedUpObject = null; //TODO: refactor later
+                Debug.Log("set station pick up object to null");
+            }
             healthZero = true;
-            //explodeSound.Stop();
             explodeSound.Play();
             // explodes when health is 0
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
@@ -165,6 +177,7 @@ public class BabyController : MonoBehaviour
             {
                 DetachBodyPart(i);
             }
+            EnableRagdoll(true);
         }
         else if (!healthIsZero)
         {
@@ -186,7 +199,10 @@ public class BabyController : MonoBehaviour
         if (!oilLeaked && Mathf.Approximately(state.currentDiaper, 0.0f))
         {
             oilLeaked = true;
-            Instantiate(oilPuddle, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+            // play water spill effect and
+            leakSound.Play();
+            Instantiate(oilLeakEffect, transform.position + Vector3.up, Quaternion.identity);
+            Instantiate(oilPuddle, new Vector3(transform.position.x, 0.1f, transform.position.z), Quaternion.identity);
         }
         else if (state.currentDiaper > 0.9f)
         {
@@ -268,15 +284,7 @@ public class BabyController : MonoBehaviour
     {
         state.currentEnergy += incrementAmount;
         // Overcharging, currently handle here
-        if (state.currentEnergy > state.energy) 
-        {
-            DecreaseHealth(decreaseHealthPerSec * Time.deltaTime * 2.5f);
-            overCharged = true;
-        }
-        else
-        {
-            overCharged = false;
-        }
+        overCharged = state.currentEnergy > state.energy;
         state.currentEnergy = Math.Clamp(state.currentEnergy, 0f, state.energy);
         uiController.UpdateEnergyBar(state.energy, state.currentEnergy);
     }
@@ -313,6 +321,12 @@ public class BabyController : MonoBehaviour
 
     private void HandleOil()
     {
+
+        if (oilLeaked)
+        {
+            state.currentOil = 0;
+        }
+        
         if (state.pickedUpObject is BottleInteractable drinkBottle && state.currentOil <= state.oil)
         {
             drinkBottle.DecreaseAmount(oilDrinkAmountOil * Time.deltaTime);
@@ -338,7 +352,7 @@ public class BabyController : MonoBehaviour
         }
     }
 
-    private void DecreaseEnergy()
+    public void DecreaseEnergy()
     {
         if (state.currentEnergy >= 0)
         {
@@ -347,7 +361,7 @@ public class BabyController : MonoBehaviour
         }
     }
 
-    private void DecreaseDiaper()
+    public void DecreaseDiaper()
     {
         if (state.currentDiaper >= 0)
         {
@@ -356,7 +370,7 @@ public class BabyController : MonoBehaviour
         }
     }
 
-    private void DecreaseHealth(float decreaseAmount)
+    public void DecreaseHealth(float decreaseAmount)
     { 
         if (state.currentHealth >= 0)
         {
@@ -366,6 +380,7 @@ public class BabyController : MonoBehaviour
             
         }
     }
+    
 
     private void DetachBodyPart(int index)
     {
