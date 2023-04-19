@@ -45,7 +45,7 @@ public class LevelsManager
     
     public void LoadLevelScene()
     {
-        if (!ContinueGame)
+        if (IsTutorial)
         {
             SceneManager.LoadScene("Tutorial");
         }

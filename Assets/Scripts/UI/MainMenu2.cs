@@ -26,7 +26,7 @@ public class MainMenu2 : MonoBehaviour
 
     private void Update()
     {
-        LevelsManager.Instance.Level = levelDropdown.value + 1;
+        LevelsManager.Instance.Level = levelDropdown.value;
         LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
         
         PlayerPrefs.SetFloat("sfx", SFX.value);
