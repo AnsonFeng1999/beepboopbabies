@@ -10,7 +10,7 @@ public class RechargeEnergy : MonoBehaviour
     public float incrementAmount = 5f;
     public float decreaseHealthOverCharge = 10f;
     public GameObject overchargeEffect;
-    private GameObject overchargeEffectInner;
+    public GameObject overchargeEffectInner;
     // Start is called before the first frame update
     private StationInteractable station;
     private static readonly int Recharge = Animator.StringToHash("Recharge");
@@ -82,6 +82,11 @@ public class RechargeEnergy : MonoBehaviour
         }
         else
         {
+            if (overchargeEffectInner != null)
+            {
+                Destroy(overchargeEffectInner);
+                overchargeEffectInner = null;
+            }
             uiController.SetAlwaysActive(false, false);
         }
     }
