@@ -10,7 +10,7 @@ public class MainMenu2 : MonoBehaviour
     [SerializeField]
     private Slider SFX, MUSIC;
     [SerializeField]
-    private Dropdown dropdown;
+    private Dropdown levelDropdown;
     [SerializeField]
     private Dropdown mapDropdown;
 
@@ -18,10 +18,6 @@ public class MainMenu2 : MonoBehaviour
     {
         SFX.value = PlayerPrefs.GetFloat("sfx", 0.5f);
         MUSIC.value = PlayerPrefs.GetFloat("music", 0.5f);
-        
-        dropdown.options = Enumerable.Range(0, LevelsManager.Instance.UnlockedLevel + 1)
-            .Select(level => new Dropdown.OptionData(level == 0 ? "Tutorial" : "Level " + level))
-            .ToList();
         mapDropdown.options = Enum.GetValues(typeof(LevelsManager.Map)).Cast<LevelsManager.Map>()
             .Select(map => new Dropdown.OptionData(map.ToString()))
             .ToList();
@@ -30,7 +26,7 @@ public class MainMenu2 : MonoBehaviour
 
     private void Update()
     {
-        LevelsManager.Instance.Level = dropdown.value;
+        LevelsManager.Instance.Level = levelDropdown.value;
         LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
         
         PlayerPrefs.SetFloat("sfx", SFX.value);
@@ -41,22 +37,26 @@ public class MainMenu2 : MonoBehaviour
         if (Input.GetKeyDown(quitKey))
         {
             Application.Quit();
-
-            Debug.Log("Quit Game.");
         }
-
-        if (Input.GetKeyDown(nextKey)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        if (Input.GetKeyDown(nextKey))
+        {
+            SceneManager.LoadScene("Select");
+        }
     }
 
     public void PlayGame()
     {
-        LevelsManager.Instance.Level = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LevelsManager.Instance.CurrentMap = LevelsManager.Map.Classic;
+        LevelsManager.Instance.Level = LevelsManager.Instance.UnlockedLevel > 0 ? 1 : 0;
+        SceneManager.LoadScene("Select");
     }
     public void ContineGame()
     {
         if (LevelsManager.Instance.Level > LevelsManager.Instance.UnlockedLevel) return;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LevelsManager.Instance.Level = levelDropdown.value;
+        LevelsManager.Instance.CurrentMap = (LevelsManager.Map) mapDropdown.value;
+        SceneManager.LoadScene("Select");
     }
 
 

@@ -23,7 +23,7 @@ public class LevelsManager
     private readonly Dictionary<Map, string> mapToScene = new()
     {
         { Map.Classic, "Scene1" },
-        { Map.Spinning, "Scene1" }, // TODO: change this to new scene
+        { Map.Spinning, "Scene2" }
     };
 
     public int Level { get; set; }

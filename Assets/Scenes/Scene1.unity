@@ -9853,6 +9853,10 @@ MonoBehaviour:
   timeon: 0
   TimerTxt: {fileID: 2058641009}
   CD: {fileID: 435005447}
+  playBeepBoopSpaceship:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &1408580405
 MonoBehaviour:
   m_ObjectHideFlags: 0
